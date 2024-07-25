@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Fonds</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for fond in fonds %}
+        <tr>
+            <td>{{ fond.id }}</td>
+            <td>{{ fond.nom }}</td>
+            <td><a href="{{ url_for('positions', fond_id=fond.id) }}">Voir les positions</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

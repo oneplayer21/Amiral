@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Tracker</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/menu">Portfolio Tracker</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/fonds">Fonds</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/instruments">Instruments</a>
+                </li>
+            </ul>
+        </div>
+        <form action="{{ url_for('recherche') }}" method="get">
+            <input type="text" name="query" placeholder="Rechercher...">
+            <button type="submit">Rechercher</button>
+        </form>
+    </nav>
+    <div class="container">
+        {% block content %}
+    <h1>Contactez le Support</h1>
+    <form action="{{ url_for('contact') }}" method="post">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required><br>
+        
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="message">Message :</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+        
+        <button type="submit">Envoyer</button>
+    </form>
+    {% endblock %}
+    </div>
+</body>
+</html>

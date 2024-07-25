@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Instruments</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for instrument in instruments %}
+        <tr>
+            <td>{{ instrument.id }}</td>
+            <td>{{ instrument.nom }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

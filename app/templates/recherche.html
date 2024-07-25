@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Résultats de la recherche pour "{{ query }}"</h1>
+<h2>Fonds</h2>
+<ul>
+    {% for fond in fonds %}
+    <li class="list-group item list-group-item-action">{{ fond.nom }}</li>
+    <a href="{{ url_for('positions', fond_id=fond.id) }}" style="font-size: 80%;">Voir les positions</a>
+    {% endfor %}
+</ul>
+
+<h2>Instruments</h2>
+<ul>
+    {% for instrument in instruments %}
+    <li>{{ instrument.nom }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Positions</h2>
+<ul>
+    {% for position in positions %}
+    <li>{{ position.instrument.nom }} - Poids: {{ position.poids }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

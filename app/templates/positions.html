@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Positions pour {{ fond.nom }}</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Instrument</th>
+            <th>Poids</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for position in positions %}
+        <tr>
+            <td>{{ position.id }}</td>
+            <td>{{ position.instrument_id }}</td>
+            <td>{{ position.poids }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p>Total des poids : {{ total_poids }}%</p>
+{% if total_poids != 100 %}
+<div class="alert alert-warning">
+    Le total des poids n'est pas égal à 100% !
+</div>
+{% endif %}
+{% endblock %}
